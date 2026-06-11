@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { navRoutes } from '@/config/site'
 import { useTranslation } from '@/i18n/LanguageProvider'
 import { getCvHref } from '@/lib/cv'
@@ -10,11 +10,21 @@ const cvButtonClass =
 
 export function Navbar() {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const { locale, t } = useTranslation()
   const cvHref = getCvHref(locale)
   const [menuOpen, setMenuOpen] = useState(false)
+  const isHome = pathname === '/'
 
   const isActive = (path: string) => (path === '/' ? pathname === '/' : pathname === path)
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1)
+    } else {
+      navigate('/')
+    }
+  }
 
   useEffect(() => {
     setMenuOpen(false)
@@ -30,13 +40,33 @@ export function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 sm:px-8 py-3 bg-surface-container-low/80 backdrop-blur-[20px] rounded-full mt-4 mx-auto w-[94%] sm:w-[90%] max-w-container-desktop border border-white/10 shadow-[0_0_20px_rgba(0,219,233,0.2)]">
-        <Link
-          to="/"
-          className="shrink-0 hover:text-primary-container transition-colors duration-300"
-          aria-label="Christian Encalada"
-        >
-          <span className="material-symbols-outlined text-[28px] sm:text-[32px] text-primary-container">terminal</span>
-        </Link>
+        {isHome ? (
+          <Link
+            to="/"
+            className="shrink-0 hover:text-primary-container transition-colors duration-300"
+            aria-label="Christian Encalada"
+          >
+            <span className="material-symbols-outlined text-[28px] sm:text-[32px] text-primary-container">terminal</span>
+          </Link>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={handleBack}
+              className="lg:hidden shrink-0 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-primary-container hover:border-primary-container/50 hover:bg-primary-container/10 transition-colors"
+              aria-label={t.nav.back}
+            >
+              <span className="material-symbols-outlined text-[24px]">arrow_back</span>
+            </button>
+            <Link
+              to="/"
+              className="hidden lg:block shrink-0 hover:text-primary-container transition-colors duration-300"
+              aria-label="Christian Encalada"
+            >
+              <span className="material-symbols-outlined text-[32px] text-primary-container">terminal</span>
+            </Link>
+          </>
+        )}
 
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navRoutes.map(({ key, path }) => (

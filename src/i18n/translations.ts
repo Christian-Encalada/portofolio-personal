@@ -9,6 +9,7 @@ export type TranslationSchema = {
     extra: string
     contact: string
     downloadCv: string
+    back: string
   }
   home: {
     status: string
@@ -16,6 +17,8 @@ export type TranslationSchema = {
     bio: string
     ctaProject: string
     ctaMatrix: string
+    scrollHint: string
+    viewAll: string
     stats: {
       experience: string
       projects: string
@@ -95,13 +98,16 @@ export const translations: Record<Locale, TranslationSchema> = {
       extra: 'Extra',
       contact: 'Contacto',
       downloadCv: 'Descargar CV',
+      back: 'Volver',
     },
     home: {
       status: 'Sistema Listo // Opt: Cyber-Noir',
-      role: 'Especialista en Automatización IA e Ingeniero de Software',
-      bio: 'Diseño y construyo sistemas de software escalables, combinando precisión empresarial con automatización inteligente para crear productos robustos y de alto impacto.',
+      role: 'Ingeniero de Software | AI & Full-Stack',
+      bio: 'Ingeniero de Software especializado en desarrollo Full-Stack y soluciones de IA. Automatizo flujos de trabajo complejos y construyo sistemas robustos listos para producción.',
       ctaProject: 'Ver Proyectos',
       ctaMatrix: 'Ver Matriz',
+      scrollHint: 'Desliza para explorar',
+      viewAll: 'Ver todo',
       stats: {
         experience: 'Experiencia',
         projects: 'Proyectos',
@@ -250,13 +256,16 @@ export const translations: Record<Locale, TranslationSchema> = {
       extra: 'Extra',
       contact: 'Contact',
       downloadCv: 'Download CV',
+      back: 'Back',
     },
     home: {
       status: 'System Ready // Opt: Cyber-Noir',
-      role: 'AI Automation Specialist & Software Engineer',
-      bio: 'I design and build scalable software systems, combining enterprise precision with intelligent automation to deliver robust, high-impact products.',
+      role: 'Software Engineer | AI & Full-Stack',
+      bio: 'Software Engineer specialized in Full-Stack development and AI solutions. I automate complex workflows and build robust, production-ready systems.',
       ctaProject: 'View Projects',
       ctaMatrix: 'View Matrix',
+      scrollHint: 'Swipe to explore',
+      viewAll: 'View all',
       stats: {
         experience: 'Experience',
         projects: 'Projects',
@@ -403,13 +412,16 @@ export const translations: Record<Locale, TranslationSchema> = {
       extra: 'Extra',
       contact: 'Contatto',
       downloadCv: 'Scarica CV',
+      back: 'Indietro',
     },
     home: {
       status: 'Sistema Pronto // Opt: Cyber-Noir',
-      role: 'Specialista in Automazione IA & Ingegnere del Software',
-      bio: 'Progetto e sviluppo sistemi software scalabili, unendo precisione aziendale e automazione intelligente per prodotti solidi e ad alto impatto.',
+      role: 'Ingegnere del Software | AI & Full-Stack',
+      bio: 'Ingegnere del Software specializzato in sviluppo Full-Stack e soluzioni di IA. Automatizzo flussi di lavoro complessi e costruisco sistemi robusti pronti per la produzione.',
       ctaProject: 'Vedi Progetti',
       ctaMatrix: 'Vedi Matrice',
+      scrollHint: 'Scorri per esplorare',
+      viewAll: 'Vedi tutto',
       stats: {
         experience: 'Esperienza',
         projects: 'Progetti',
@@ -556,13 +568,16 @@ export const translations: Record<Locale, TranslationSchema> = {
       extra: '更多',
       contact: '联系',
       downloadCv: '下载简历',
+      back: '返回',
     },
     home: {
       status: '系统就绪 // 模式: Cyber-Noir',
-      role: 'AI 自动化专家与软件工程师',
-      bio: '我专注于构建可扩展的软件系统，将企业级工程精度与智能自动化结合，交付稳定且高价值的产品。',
+      role: '软件工程师 | AI & 全栈',
+      bio: '专注于全栈开发与 AI 解决方案的软件工程师。我自动化复杂工作流，构建稳健、可投入生产的系统。',
       ctaProject: '查看项目',
       ctaMatrix: '查看矩阵',
+      scrollHint: '滑动浏览',
+      viewAll: '查看全部',
       stats: {
         experience: '经验',
         projects: '项目',
@@ -707,13 +722,16 @@ export const translations: Record<Locale, TranslationSchema> = {
       extra: 'Extra',
       contact: '連絡',
       downloadCv: 'CVをダウンロード',
+      back: '戻る',
     },
     home: {
       status: 'System Ready // Opt: Cyber-Noir',
-      role: 'AIオートメーションスペシャリスト / ソフトウェアエンジニア',
-      bio: 'エンタープライズ品質の設計精度とインテリジェント自動化を組み合わせ、拡張性の高い堅牢なソフトウェアを構築します。',
+      role: 'ソフトウェアエンジニア | AI & フルスタック',
+      bio: 'フルスタック開発とAIソリューションを専門とするソフトウェアエンジニア。複雑なワークフローを自動化し、本番環境に対応した堅牢なシステムを構築します。',
       ctaProject: 'プロジェクトを見る',
       ctaMatrix: 'マトリクスを見る',
+      scrollHint: 'スワイプして探索',
+      viewAll: 'すべて見る',
       stats: {
         experience: '経験',
         projects: 'プロジェクト',

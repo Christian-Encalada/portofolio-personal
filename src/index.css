@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-snap-type: none;
+  }
+
+  html:has(.mobile-snap-scroll) {
+    scroll-snap-type: y proximity;
+  }
+
   body {
     @apply bg-background text-on-surface font-body-base antialiased overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -155,6 +166,43 @@
 
   .mobile-menu-enter {
     animation: mobile-menu-enter 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobile-snap-scroll {
+    @apply w-full;
+  }
+
+  .mobile-snap-section {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .mobile-display-name {
+    font-family: Inter, sans-serif;
+    font-size: clamp(2.25rem, 9vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .mobile-display-role {
+    font-family: Inter, sans-serif;
+    font-size: clamp(1.2rem, 4.8vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .mobile-section-title {
+    font-family: Inter, sans-serif;
+    font-size: clamp(1.65rem, 6vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 }
 

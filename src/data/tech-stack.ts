@@ -93,6 +93,17 @@ export const techCategories: TechCategory[] = [
   },
 ]
 
+export const mobilePreviewTechLogos: TechLogo[] = [
+  { name: 'React', slug: 'react', color: '61DAFB' },
+  { name: 'TypeScript', slug: 'typescript', color: '3178C6' },
+  { name: 'NestJS', slug: 'nestjs', color: 'E0234E' },
+  { name: 'FastAPI', slug: 'fastapi', color: '009688' },
+  { name: 'PostgreSQL', slug: 'postgresql', color: '4169E1' },
+  { name: 'AWS', src: '/tech/aws.svg' },
+  { name: 'Docker', slug: 'docker', color: '2496ED' },
+  { name: 'Python', slug: 'python', color: '3776AB' },
+]
+
 export const techCarouselLogos: TechLogo[] = [
   { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
   { name: 'TypeScript', slug: 'typescript', color: '3178C6' },

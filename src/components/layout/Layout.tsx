@@ -20,7 +20,7 @@ export function Layout() {
       <div key={pathname} className="page-enter flex-grow flex flex-col">
         <Outlet />
       </div>
-      <Footer />
+      <Footer className={isHome ? 'hidden lg:flex' : undefined} />
     </div>
   )
 }
