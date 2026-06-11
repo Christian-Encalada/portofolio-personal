@@ -70,7 +70,7 @@ export function MobileHomeScroll() {
               <span className="blinking-cursor" />
             </h2>
 
-            <p className="text-[15px] leading-relaxed text-on-surface-variant text-pretty">{home.bio}</p>
+            <p className="text-bio text-pretty">{home.bio}</p>
 
             <div className="flex flex-col gap-2.5 pt-1 w-full">
               <Link

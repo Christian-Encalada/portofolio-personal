@@ -42,7 +42,7 @@ export function HomePage() {
               <span className="blinking-cursor" />
             </h2>
 
-            <p className="font-body-base text-body-base text-on-surface-variant max-w-xl leading-relaxed">{home.bio}</p>
+            <p className="text-bio max-w-xl">{home.bio}</p>
 
             <div className="flex flex-wrap items-center gap-6 mt-4">
               <Link
