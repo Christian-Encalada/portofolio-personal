@@ -1,4 +1,5 @@
 import type { TechLogo } from '@/data/tech-stack'
+import { useReveal } from '@/hooks/useReveal'
 
 type MobileTechLogoGridProps = {
   logos: TechLogo[]
@@ -11,8 +12,10 @@ function logoUrl(logo: TechLogo) {
 }
 
 export function MobileTechLogoGrid({ logos }: MobileTechLogoGridProps) {
+  const ref = useReveal<HTMLDivElement>({ threshold: 0.1 })
+
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div ref={ref} className="grid grid-cols-2 gap-3 reveal-stagger">
       {logos.map((logo) => (
         <div
           key={logo.name}

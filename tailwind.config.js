@@ -52,6 +52,7 @@ export default {
         'on-secondary-container': '#ddcdff',
         'secondary-container': '#7000ff',
         'on-background': '#e2e1eb',
+        'text-muted': '#9aadb0',
       },
       borderRadius: {
         DEFAULT: '0.125rem',

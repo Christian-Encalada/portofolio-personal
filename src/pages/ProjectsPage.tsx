@@ -1,4 +1,5 @@
 import { ProjectCard } from '@/components/projects/ProjectCard'
+import { Reveal } from '@/components/ui/Reveal'
 import { SectionDivider } from '@/components/ui/SectionDivider'
 import { portfolioProjects } from '@/data/projects'
 import { useTranslation } from '@/i18n/LanguageProvider'
@@ -9,7 +10,7 @@ export function ProjectsPage() {
 
   return (
     <main className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop w-full max-w-container-desktop mx-auto relative z-10">
-      <header className="mb-20 relative">
+      <Reveal variant="reveal-terminal" as="header" className="mb-20 relative">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary-container/10 rounded-full blur-[100px] pointer-events-none" />
         <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-4">
           {projects.titleLine1} <br />
@@ -20,10 +21,12 @@ export function ProjectsPage() {
           &gt; ./execute_portfolio.sh
           <span className="w-2 h-4 bg-primary-container inline-block animate-blink ml-1" />
         </p>
-      </header>
+      </Reveal>
 
       <section className="mb-20">
-        <SectionDivider title={projects.sectionTitle} />
+        <Reveal>
+          <SectionDivider title={projects.sectionTitle} />
+        </Reveal>
         <div className="space-y-8">
           {portfolioProjects.map((project) => {
             const item = projects.showcaseItems[project.id]

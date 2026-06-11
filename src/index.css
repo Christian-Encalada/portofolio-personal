@@ -143,6 +143,45 @@
     @apply fixed top-0 left-0 w-6 h-6 border border-secondary rounded-full pointer-events-none z-[9998];
     will-change: transform;
   }
+
+  .card-spotlight {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    position: relative;
+  }
+
+  .card-spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      400px circle at var(--mouse-x) var(--mouse-y),
+      rgba(0, 240, 255, 0.45),
+      rgba(112, 0, 255, 0.15) 40%,
+      transparent 70%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card-spotlight:hover::before {
+    opacity: 1;
+  }
+
+  .online-badge-pulse {
+    animation: status-pulse 2.5s ease-in-out infinite;
+  }
+
+  .glitch-hover {
+    display: inline-block;
+  }
 }
 
 @layer utilities {
@@ -210,6 +249,95 @@
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.65s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .reveal-terminal {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-terminal.is-visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+
+  .reveal-stagger.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-scan {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reveal-scan::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.08), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .reveal-scan.is-visible::after {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-hover:hover {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal-terminal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .reveal-scan::after {
+    display: none;
+  }
+
+  .online-badge-pulse {
+    animation: none !important;
+  }
 }
 
 @keyframes blink {
@@ -251,6 +379,23 @@
     opacity: 1;
     transform: translate(-50%, 0);
   }
+}
+
+@keyframes glitch-shift {
+  0%, 100% { transform: translate(0); text-shadow: none; }
+  20% { transform: translate(-2px, 1px); text-shadow: 2px 0 #00f0ff, -2px 0 #d1bcff; }
+  40% { transform: translate(2px, -1px); text-shadow: -2px 0 #00f0ff, 2px 0 #7000ff; }
+  60% { transform: translate(-1px, 0); text-shadow: 1px 0 #00f0ff; }
+  80% { transform: translate(1px, 1px); text-shadow: -1px 0 #d1bcff; }
+}
+
+.glitch-hover:hover {
+  animation: glitch-shift 0.35s steps(2, end) 1;
+}
+
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
 }
 
 ::-webkit-scrollbar { width: 6px; }

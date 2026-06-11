@@ -1,3 +1,5 @@
+import { useReveal } from '@/hooks/useReveal'
+
 type ExperienceItemProps = {
   role: string
   company: string
@@ -29,8 +31,10 @@ export function ExperienceItem({
   executingLabel,
   stackRegistryLabel,
 }: ExperienceItemProps) {
+  const revealRef = useReveal<HTMLDivElement>()
+
   return (
-    <div className="relative group">
+    <div ref={revealRef} className="reveal reveal-scan relative group">
       <div
         className={`absolute -left-[21px] md:-left-[37px] top-6 w-3 h-3 rounded-full z-10 ring-4 ring-background ${
           active

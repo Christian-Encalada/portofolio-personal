@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { OnlineStatusBadge } from '@/components/contact/OnlineStatusBadge'
 import { HexagonCore } from '@/components/effects/HexagonCore'
 import { MobileScrollIndicator } from '@/components/home/MobileScrollIndicator'
+import { Reveal } from '@/components/ui/Reveal'
+import { SocialLinksInline } from '@/components/ui/SocialLinks'
 import { MobileTechLogoGrid } from '@/components/home/MobileTechLogoGrid'
-import { socialLinks, site } from '@/config/site'
+import { site } from '@/config/site'
 import { experienceEntries } from '@/data/experience'
 import { hackathons, portfolioProjects } from '@/data/projects'
 import { mobilePreviewTechLogos } from '@/data/tech-stack'
@@ -58,7 +60,7 @@ export function MobileHomeScroll() {
             <h1 className="mobile-display-name text-on-surface">
               Christian
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary glitch-hover">
                 Encalada
               </span>
             </h1>
@@ -68,7 +70,7 @@ export function MobileHomeScroll() {
               <span className="blinking-cursor" />
             </h2>
 
-            <p className="text-[15px] leading-relaxed text-on-tertiary-container text-pretty">{home.bio}</p>
+            <p className="text-[15px] leading-relaxed text-on-surface-variant text-pretty">{home.bio}</p>
 
             <div className="flex flex-col gap-2.5 pt-1 w-full">
               <Link
@@ -104,7 +106,7 @@ export function MobileHomeScroll() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-1 mt-8 text-on-surface-variant/60">
+          <div className="flex flex-col items-center gap-1 mt-8 text-outline">
             <span className="font-terminal-small text-[10px] uppercase tracking-widest">{home.scrollHint}</span>
             <span className="material-symbols-outlined text-[20px] animate-bounce">keyboard_arrow_down</span>
           </div>
@@ -112,7 +114,7 @@ export function MobileHomeScroll() {
 
         {/* Experience */}
         <section id="home-experience" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
-          <div className="flex items-end justify-between mb-6">
+          <Reveal className="flex items-end justify-between mb-6">
             <div>
               <p className="font-terminal-small text-[11px] text-primary-container uppercase tracking-widest mb-1">
                 {experience.eyebrow}
@@ -126,9 +128,9 @@ export function MobileHomeScroll() {
             <Link to="/experience" className="font-code-label text-[12px] text-primary-container shrink-0">
               {home.viewAll} →
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="space-y-4">
+          <Reveal variant="reveal-stagger" className="space-y-4">
             {previewExperience.map((entry) => {
               const translated = experience.entries[entry.id]
               if (!translated) return null
@@ -160,12 +162,12 @@ export function MobileHomeScroll() {
                 </div>
               )
             })}
-          </div>
+          </Reveal>
         </section>
 
         {/* Projects */}
         <section id="home-projects" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
-          <div className="flex items-end justify-between mb-6">
+          <Reveal className="flex items-end justify-between mb-6">
             <h2 className="mobile-section-title text-on-surface">
               {projects.titleLine1}
               <br />
@@ -174,9 +176,9 @@ export function MobileHomeScroll() {
             <Link to="/projects" className="font-code-label text-[12px] text-primary-container shrink-0">
               {home.viewAll} →
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="space-y-4">
+          <Reveal variant="reveal-stagger" className="space-y-4">
             {previewProjects.map((project) => {
               const translated = projects.showcaseItems[project.id]
               if (!translated) return null
@@ -211,12 +213,12 @@ export function MobileHomeScroll() {
                 </div>
               )
             })}
-          </div>
+          </Reveal>
         </section>
 
         {/* Tech Stack */}
         <section id="home-stack" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
-          <div className="flex items-end justify-between mb-6">
+          <Reveal className="flex items-end justify-between mb-6">
             <h2 className="mobile-section-title text-on-surface">
               {techStack.title}
               <br />
@@ -225,14 +227,14 @@ export function MobileHomeScroll() {
             <Link to="/tech-stack" className="font-code-label text-[12px] text-primary-container shrink-0">
               {home.viewAll} →
             </Link>
-          </div>
+          </Reveal>
 
           <MobileTechLogoGrid logos={mobilePreviewTechLogos} />
         </section>
 
         {/* Extra */}
         <section id="home-extra" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
-          <div className="flex items-end justify-between mb-6">
+          <Reveal className="flex items-end justify-between mb-6">
             <h2 className="mobile-section-title text-on-surface">
               {extra.titleLine1}
               <br />
@@ -241,11 +243,13 @@ export function MobileHomeScroll() {
             <Link to="/extra" className="font-code-label text-[12px] text-primary-container shrink-0">
               {home.viewAll} →
             </Link>
-          </div>
+          </Reveal>
 
-          <p className="text-[13px] text-on-surface-variant leading-relaxed mb-5 line-clamp-2">{extra.subtitle}</p>
+          <Reveal className="mb-5">
+            <p className="text-[13px] text-on-surface-variant leading-relaxed line-clamp-2">{extra.subtitle}</p>
+          </Reveal>
 
-          <div className="space-y-4">
+          <Reveal variant="reveal-stagger" className="space-y-4">
             {previewHackathons.map((hackathon) => {
               const item = extra.hackathonItems[hackathon.id]
               if (!item) return null
@@ -271,12 +275,12 @@ export function MobileHomeScroll() {
                 </div>
               )
             })}
-          </div>
+          </Reveal>
         </section>
 
         {/* Contact */}
         <section id="home-contact" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
-          <div className="flex items-end justify-between mb-3">
+          <Reveal className="flex items-end justify-between mb-3">
             <div>
               <OnlineStatusBadge label={contact.statusOnline} className="mb-2" />
               <h2 className="mobile-section-title text-on-surface">
@@ -288,8 +292,10 @@ export function MobileHomeScroll() {
             <Link to="/contact" className="font-code-label text-[12px] text-primary-container shrink-0">
               {home.viewAll} →
             </Link>
-          </div>
-          <p className="text-[14px] text-on-surface-variant leading-relaxed text-pretty mb-6">{contact.description}</p>
+          </Reveal>
+          <Reveal className="mb-6">
+            <p className="text-[14px] text-on-surface-variant leading-relaxed text-pretty">{contact.description}</p>
+          </Reveal>
 
           <Link
             to="/contact"
@@ -301,22 +307,9 @@ export function MobileHomeScroll() {
             </span>
           </Link>
 
-          <div className="flex justify-center gap-6 mb-8">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-terminal-small text-[12px] text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-1.5"
-              >
-                <span className="material-symbols-outlined text-[16px]">{link.icon}</span>
-                {link.label}
-              </a>
-            ))}
-          </div>
+          <SocialLinksInline className="mb-8" />
 
-          <p className="text-center font-terminal-small text-[11px] text-on-surface-variant/60">
+          <p className="text-center font-terminal-small text-[11px] text-outline">
             {site.location} · {site.email}
           </p>
         </section>

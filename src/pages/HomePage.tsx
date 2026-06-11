@@ -32,9 +32,9 @@ export function HomePage() {
             <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
               Christian
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary drop-shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                Encalada
-              </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-secondary drop-shadow-[0_0_15px_rgba(0,240,255,0.3)] glitch-hover">
+              Encalada
+            </span>
             </h1>
 
             <h2 className="font-headline-md text-headline-md text-on-surface-variant max-w-2xl border-l-2 border-primary-container/50 pl-4 py-1">
@@ -42,7 +42,7 @@ export function HomePage() {
               <span className="blinking-cursor" />
             </h2>
 
-            <p className="font-body-base text-body-base text-on-tertiary-container max-w-xl leading-relaxed">{home.bio}</p>
+            <p className="font-body-base text-body-base text-on-surface-variant max-w-xl leading-relaxed">{home.bio}</p>
 
             <div className="flex flex-wrap items-center gap-6 mt-4">
               <Link

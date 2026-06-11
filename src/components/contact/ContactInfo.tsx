@@ -1,4 +1,5 @@
 import { OnlineStatusBadge } from '@/components/contact/OnlineStatusBadge'
+import { Reveal } from '@/components/ui/Reveal'
 import { site, socialLinks } from '@/config/site'
 import { useTranslation } from '@/i18n/LanguageProvider'
 
@@ -8,7 +9,7 @@ export function ContactInfo() {
 
   return (
     <div className="lg:col-span-5 flex flex-col gap-8 lg:gap-12 w-full min-w-0 max-w-full">
-      <header className="space-y-4 sm:space-y-6">
+      <Reveal as="header" variant="reveal-terminal" className="space-y-4 sm:space-y-6">
         <OnlineStatusBadge label={contact.statusOnline} />
         <h1 className="mobile-section-title text-on-surface lg:font-display-lg lg:text-display-lg">
           {contact.titleLine1}
@@ -18,9 +19,9 @@ export function ContactInfo() {
           </span>
         </h1>
         <p className="text-[15px] sm:text-base leading-relaxed text-on-surface-variant max-w-md text-pretty">{contact.description}</p>
-      </header>
+      </Reveal>
 
-      <div className="flex flex-col gap-4 w-full min-w-0">
+      <Reveal className="flex flex-col gap-4 w-full min-w-0">
         <a
           href={`mailto:${site.email}`}
           className="group flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-surface-container-low/50 border border-white/10 rounded-xl backdrop-blur-md transition-all duration-300 hover:border-primary-container/50 hover:bg-white/[0.05] min-w-0"
@@ -29,7 +30,7 @@ export function ContactInfo() {
             <span className="material-symbols-outlined text-[20px] sm:text-[24px]">mail</span>
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="font-code-label text-[10px] sm:text-code-label text-on-surface-variant uppercase tracking-wider mb-1">
+            <span className="font-code-label text-[10px] sm:text-code-label text-outline uppercase tracking-wider mb-1">
               {contact.directProtocol}
             </span>
             <span className="font-code-label text-[12px] sm:text-code-label text-on-surface group-hover:text-primary-container transition-colors break-all">
@@ -74,15 +75,15 @@ export function ContactInfo() {
             )
           })}
         </div>
-      </div>
+      </Reveal>
 
-      <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 text-on-surface-variant">
+      <Reveal className="flex items-start sm:items-center gap-2.5 sm:gap-3 text-on-surface-variant">
         <span className="material-symbols-outlined text-primary-container shrink-0 mt-0.5 sm:mt-0">location_on</span>
         <div className="font-code-label text-[12px] sm:text-code-label leading-relaxed">
           <span className="text-on-surface block sm:inline">{site.location}</span>
-          <span className="opacity-50 block sm:inline sm:ml-2 mt-0.5 sm:mt-0">{contact.baseOps}</span>
+          <span className="text-outline block sm:inline sm:ml-2 mt-0.5 sm:mt-0">{contact.baseOps}</span>
         </div>
-      </div>
+      </Reveal>
     </div>
   )
 }

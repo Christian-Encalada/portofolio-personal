@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { Reveal } from '@/components/ui/Reveal'
 import { useTranslation } from '@/i18n/LanguageProvider'
 import { ContactSendError, sendContactEmail, validateContactPayload } from '@/lib/contact'
 
@@ -80,7 +81,7 @@ export function ContactForm() {
   const isLoading = status === 'loading'
 
   return (
-    <div className="lg:col-span-7 relative w-full min-w-0 max-w-full">
+    <Reveal className="lg:col-span-7 relative w-full min-w-0 max-w-full">
       <div className="hidden sm:block absolute -top-4 -left-4 w-12 h-12 border-t border-l border-outline-variant opacity-30" />
       <div className="hidden sm:block absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-outline-variant opacity-30" />
       <div className="bg-surface-container-low/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 sm:p-8 lg:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] w-full min-w-0 max-w-full overflow-hidden">
@@ -117,7 +118,7 @@ export function ContactForm() {
             <div key={field.id} className="relative group min-w-0">
               <label
                 htmlFor={field.id}
-                className="block font-terminal-small text-[11px] sm:text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
+                className="block font-terminal-small text-[11px] sm:text-terminal-small text-text-muted mb-1 uppercase group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
               >
                 {field.label}
               </label>
@@ -140,7 +141,7 @@ export function ContactForm() {
           <div className="relative group min-w-0">
             <label
               htmlFor="message"
-              className="block font-terminal-small text-[11px] sm:text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
+              className="block font-terminal-small text-[11px] sm:text-terminal-small text-text-muted mb-1 uppercase group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
             >
               {contact.messageLabel}
             </label>
@@ -180,6 +181,6 @@ export function ContactForm() {
           </div>
         </form>
       </div>
-    </div>
+    </Reveal>
   )
 }
