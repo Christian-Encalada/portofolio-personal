@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Christian Encalada">
+  <rect width="32" height="32" rx="7" fill="#0a0a0a"/>
+  <rect x="1.5" y="1.5" width="29" height="29" rx="6" fill="none" stroke="#00F0FF" stroke-opacity="0.45"/>
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    font-weight="700"
+    font-size="17"
+    fill="#00F0FF"
+  >C</text>
+  <circle cx="24" cy="24" r="2.5" fill="#7000FF"/>
+</svg>

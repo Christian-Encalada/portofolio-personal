@@ -1,0 +1,31 @@
+{
+  "projectId": "12058918404267414021",
+  "title": "Christian Encalada Portfolio",
+  "screens": {
+    "home": {
+      "id": "9f134ae1581546dbaf230292b4efe6bb",
+      "title": "Christian Encalada - Portfolio Home",
+      "route": "/"
+    },
+    "experience": {
+      "id": "36caa23c84334db287b7445e43b3870c",
+      "title": "Experience - Christian Encalada",
+      "route": "/experience.html"
+    },
+    "projects": {
+      "id": "a14a8bac38e84515bc4513f184ef7233",
+      "title": "Projects - Christian Encalada (Dark)",
+      "route": "/projects.html"
+    },
+    "tech-stack": {
+      "id": "d76ccf80708c49ec857fbefff22d77f1",
+      "title": "Tech Stack - Christian Encalada",
+      "route": "/tech-stack.html"
+    },
+    "contact": {
+      "id": "59c986c2d9be4b19ab63338b483541a1",
+      "title": "Contact - Christian Encalada (Dark)",
+      "route": "/contact.html"
+    }
+  }
+}
