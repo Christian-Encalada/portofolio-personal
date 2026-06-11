@@ -5,10 +5,12 @@
 @layer base {
   html {
     scroll-snap-type: none;
+    overflow-x: hidden;
   }
 
   html:has(.mobile-snap-scroll) {
     scroll-snap-type: y proximity;
+    scroll-padding-top: 5.5rem;
   }
 
   body {
@@ -174,8 +176,12 @@
 
   .mobile-snap-section {
     min-height: 100dvh;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+  }
+
+  .mobile-snap-section-hero {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 
   .mobile-display-name {

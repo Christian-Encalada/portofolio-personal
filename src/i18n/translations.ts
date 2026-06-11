@@ -225,7 +225,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       titleLine1: 'Inicializar',
       titleLine2: 'Conexión.',
       description:
-        'Listo para arquitectar soluciones escalables o discutir roles de ingeniería de alto impacto. El protocolo está abierto.',
+        'Listo para diseñar soluciones escalables o discutir roles de ingeniería de alto impacto. El protocolo está abierto.',
       directProtocol: 'Protocolo Directo',
       linkedinSub: 'Red Profesional',
       githubSub: 'Repositorios de Código',
@@ -381,7 +381,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       titleLine1: 'Initialize',
       titleLine2: 'Connection.',
       description:
-        'Ready to architect scalable solutions or discuss high-impact engineering roles. The protocol is open. Drop a line to establish contact.',
+        'Ready to design scalable solutions or discuss high-impact engineering roles. The protocol is open.',
       directProtocol: 'Direct Protocol',
       linkedinSub: 'Professional Network',
       githubSub: 'Code Repositories',

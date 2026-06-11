@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { OnlineStatusBadge } from '@/components/contact/OnlineStatusBadge'
 import { HexagonCore } from '@/components/effects/HexagonCore'
 import { MobileScrollIndicator } from '@/components/home/MobileScrollIndicator'
 import { MobileTechLogoGrid } from '@/components/home/MobileTechLogoGrid'
@@ -39,9 +40,11 @@ export function MobileHomeScroll() {
 
       <main className="lg:hidden mobile-snap-scroll w-full relative z-10">
         {/* Hero */}
-        <section id="home-hero" className="mobile-snap-section flex flex-col justify-center px-margin-mobile pt-24 pb-10">
-          <div className="flex justify-center mb-6 scale-[0.72] origin-top -mb-8">
-            <HexagonCore />
+        <section id="home-hero" className="mobile-snap-section mobile-snap-section-hero flex flex-col px-margin-mobile pt-20 pb-10">
+          <div className="flex items-center justify-center w-full min-h-[40dvh] pt-8 pb-4">
+            <div className="scale-[0.68] sm:scale-[0.72]">
+              <HexagonCore />
+            </div>
           </div>
 
           <div className="flex flex-col space-y-5">
@@ -70,11 +73,11 @@ export function MobileHomeScroll() {
             <div className="flex flex-col gap-2.5 pt-1 w-full">
               <Link
                 to="/contact"
-                className="w-full flex items-center justify-between px-5 bg-primary-container text-on-primary-container font-semibold text-[15px] py-4 rounded-2xl shadow-[0_0_28px_rgba(0,240,255,0.3)] active:scale-[0.98] transition-transform"
+                className="w-full flex items-center justify-center gap-3 bg-primary-container text-on-primary-container font-semibold text-[15px] py-4 rounded-2xl shadow-[0_0_28px_rgba(0,240,255,0.3)] active:scale-[0.98] transition-transform"
               >
                 <span>{nav.contact}</span>
-                <span className="w-9 h-9 rounded-full bg-on-primary-container/20 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                <span className="w-8 h-8 rounded-full bg-on-primary-container/20 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </span>
               </Link>
 
@@ -275,9 +278,7 @@ export function MobileHomeScroll() {
         <section id="home-contact" className="mobile-snap-section flex flex-col justify-center px-margin-mobile py-16">
           <div className="flex items-end justify-between mb-3">
             <div>
-              <p className="font-terminal-small text-[11px] text-primary-container uppercase tracking-widest mb-2">
-                {contact.statusOnline}
-              </p>
+              <OnlineStatusBadge label={contact.statusOnline} className="mb-2" />
               <h2 className="mobile-section-title text-on-surface">
                 {contact.titleLine1}
                 <br />
@@ -292,11 +293,11 @@ export function MobileHomeScroll() {
 
           <Link
             to="/contact"
-            className="w-full flex items-center justify-between px-5 bg-primary-container text-on-primary-container font-semibold text-[15px] py-4 rounded-2xl shadow-[0_0_28px_rgba(0,240,255,0.3)] mb-6 active:scale-[0.98] transition-transform"
+            className="w-full flex items-center justify-center gap-3 bg-primary-container text-on-primary-container font-semibold text-[15px] py-4 rounded-2xl shadow-[0_0_28px_rgba(0,240,255,0.3)] mb-6 active:scale-[0.98] transition-transform"
           >
             <span>{nav.contact}</span>
-            <span className="w-9 h-9 rounded-full bg-on-primary-container/20 flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+            <span className="w-8 h-8 rounded-full bg-on-primary-container/20 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </span>
           </Link>
 
@@ -307,7 +308,7 @@ export function MobileHomeScroll() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-terminal-small text-[12px] text-on-tertiary-fixed-variant hover:text-secondary transition-colors flex items-center gap-1.5"
+                className="font-terminal-small text-[12px] text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-1.5"
               >
                 <span className="material-symbols-outlined text-[16px]">{link.icon}</span>
                 {link.label}

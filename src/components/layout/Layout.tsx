@@ -11,13 +11,13 @@ export function Layout() {
   const isHome = pathname === '/'
 
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden w-full">
       <ScrollToTop />
       <CustomCursor />
       {isHome && <ShaderBackground />}
       <GridBackground />
       <Navbar />
-      <div key={pathname} className="page-enter flex-grow flex flex-col">
+      <div key={pathname} className="page-enter flex-grow flex flex-col w-full min-w-0 overflow-x-hidden">
         <Outlet />
       </div>
       <Footer className={isHome ? 'hidden lg:flex' : undefined} />

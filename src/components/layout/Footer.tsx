@@ -20,7 +20,7 @@ export function Footer({ className }: FooterProps) {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-terminal-small text-terminal-small text-on-tertiary-fixed-variant hover:text-secondary-fixed transition-colors flex items-center gap-1"
+            className="font-terminal-small text-terminal-small text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-1"
           >
             <span className="material-symbols-outlined text-[16px]">{link.icon}</span>
             {link.label}

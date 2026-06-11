@@ -80,14 +80,14 @@ export function ContactForm() {
   const isLoading = status === 'loading'
 
   return (
-    <div className="lg:col-span-7 relative">
-      <div className="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-outline-variant opacity-30" />
-      <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-outline-variant opacity-30" />
-      <div className="bg-surface-container-low/80 backdrop-blur-xl border border-white/10 rounded-xl p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]">
-        <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-4">
-          <h3 className="font-code-label text-code-label text-on-surface uppercase tracking-widest flex items-center gap-2">
-            <span className="material-symbols-outlined text-[16px]">terminal</span>
-            {contact.formTitle}
+    <div className="lg:col-span-7 relative w-full min-w-0 max-w-full">
+      <div className="hidden sm:block absolute -top-4 -left-4 w-12 h-12 border-t border-l border-outline-variant opacity-30" />
+      <div className="hidden sm:block absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-outline-variant opacity-30" />
+      <div className="bg-surface-container-low/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 sm:p-8 lg:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] w-full min-w-0 max-w-full overflow-hidden">
+        <div className="mb-6 sm:mb-8 flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+          <h3 className="font-code-label text-[11px] sm:text-code-label text-on-surface uppercase tracking-wide sm:tracking-widest flex items-center gap-2 min-w-0 flex-1">
+            <span className="material-symbols-outlined text-[16px] shrink-0">terminal</span>
+            <span className="truncate">{contact.formTitle}</span>
           </h3>
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-outline-variant/30" />
@@ -108,16 +108,16 @@ export function ContactForm() {
             <span className="material-symbols-outlined text-[18px] shrink-0 mt-0.5">
               {status === 'success' ? 'check_circle' : 'error'}
             </span>
-            <span>{feedback}</span>
+            <span className="break-words min-w-0">{feedback}</span>
           </div>
         )}
 
-        <form className="space-y-8" onSubmit={handleSubmit} noValidate>
+        <form className="space-y-6 sm:space-y-8" onSubmit={handleSubmit} noValidate>
           {fields.map((field) => (
-            <div key={field.id} className="relative group">
+            <div key={field.id} className="relative group min-w-0">
               <label
                 htmlFor={field.id}
-                className="block font-terminal-small text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors"
+                className="block font-terminal-small text-[11px] sm:text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
               >
                 {field.label}
               </label>
@@ -131,16 +131,16 @@ export function ContactForm() {
                   onChange={(e) => field.onChange(e.target.value)}
                   disabled={isLoading}
                   required
-                  className="terminal-input w-full py-2 font-code-label text-code-label text-on-surface placeholder:text-outline-variant bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary-container disabled:opacity-50"
+                  className="terminal-input w-full min-w-0 py-2 font-code-label text-[13px] sm:text-code-label text-on-surface placeholder:text-outline-variant bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary-container disabled:opacity-50"
                   placeholder={field.placeholder}
                 />
               </div>
             </div>
           ))}
-          <div className="relative group">
+          <div className="relative group min-w-0">
             <label
               htmlFor="message"
-              className="block font-terminal-small text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors"
+              className="block font-terminal-small text-[11px] sm:text-terminal-small text-on-surface-variant mb-1 uppercase opacity-70 group-focus-within:text-primary-container transition-colors break-words tracking-wide sm:tracking-normal"
             >
               {contact.messageLabel}
             </label>
@@ -154,16 +154,16 @@ export function ContactForm() {
                 onChange={(e) => setMessage(e.target.value)}
                 disabled={isLoading}
                 required
-                className="terminal-input w-full py-2 font-code-label text-code-label text-on-surface placeholder:text-outline-variant bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary-container resize-none disabled:opacity-50"
+                className="terminal-input w-full min-w-0 py-2 font-code-label text-[13px] sm:text-code-label text-on-surface placeholder:text-outline-variant bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary-container resize-none disabled:opacity-50"
                 placeholder={contact.messagePlaceholder}
               />
             </div>
           </div>
-          <div className="pt-6 flex justify-end">
+          <div className="pt-4 sm:pt-6 flex justify-stretch sm:justify-end">
             <button
               type="submit"
               disabled={isLoading}
-              className="btn-liquid border border-primary-container text-primary-container px-8 py-3 font-code-label text-code-label uppercase tracking-widest inline-flex items-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed min-w-[200px] justify-center"
+              className="btn-liquid w-full sm:w-auto border border-primary-container text-primary-container px-6 sm:px-8 py-3.5 sm:py-3 font-code-label text-code-label uppercase tracking-widest inline-flex items-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed sm:min-w-[200px] justify-center rounded-xl"
             >
               {isLoading ? (
                 <>
